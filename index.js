@@ -2,7 +2,54 @@ const inquirer = require('inquirer');
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown');
 // array of questions for user
-const questions = [{type:'input', message: 'testing testing', name: 'test'},{type: 'input', message: 'another test', name:'test2'}
+const questions = [
+    {
+        type:'input', 
+        message: 'What is your project TITLE?', 
+        name: 'title'
+    },
+    {
+        type:'input', 
+        message: 'Please DESCRIBE your project.', 
+        name:'description'
+    },
+    {
+        type:'input', 
+        message: 'Please provide INSTALLATION instructions.', 
+        name:'installation'
+    },
+    {
+        type:'input', 
+        message: 'Please describe the USE CASE for your project.', 
+        name:'usage'
+    },
+    {
+        type:'input', 
+        message: 'Please describe how to CONTRIBUTE to this project.', 
+        name:'contributing'
+    },
+    {
+        type:'input', 
+        message: 'Please provide TEST information.', 
+        name:'tests'
+    },
+    {
+        type:'list', 
+        message: 'Please choose a LICENSE option.', 
+        choices:['MIT', 'GPLv2','Apache', 'GPLv3', 'BSD 3-clause' ],
+        name:'license',
+        default: 'MIT'
+    },
+    {
+        type:'input', 
+        message: 'Enter your gitHub USERNAME?', 
+        name:'username'
+    },
+    {
+        type:'input', 
+        message: 'Enter your e-mail', 
+        name:'email'
+    }
 
 ];
 
@@ -16,8 +63,8 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
     inquirer.prompt(questions).then(response => {
-        const jsonFile = generateMarkdown(response);
-        writeToFile('README2.md', response)
+        const fileString = generateMarkdown(response);
+        writeToFile('README2.md', fileString)
     });
 }
 
