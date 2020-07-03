@@ -6,17 +6,19 @@ const questions = [
     {
         type:'input', 
         message: 'What is your project TITLE?', 
-        name: 'title'
+        name: 'title',
     },
     {
         type:'input', 
         message: 'Please DESCRIBE your project.', 
-        name:'description'
+        name:'description',
+        default: 'See further project details below.'
     },
     {
         type:'input', 
         message: 'Please provide INSTALLATION instructions.', 
-        name:'installation'
+        name:'installation',
+        default: 'There are no project specific installation instructions to provide.'
     },
     {
         type:'input', 
@@ -26,12 +28,22 @@ const questions = [
     {
         type:'input', 
         message: 'Please describe how to CONTRIBUTE to this project.', 
-        name:'contributing'
+        name:'contributing',
+        default: `To contribute to this application, create a pull request. Here are the steps needed for doing that:
+
+        * Fork the repo
+        * Create a feature branch (git checkout -b NAME-HERE)
+        * Commit your new feature (git commit -m 'Add some feature')
+        * Push your branch (git push)
+        * Create a new Pull Request
+        
+        Following a code review, your feature will be merged.`
     },
     {
         type:'input', 
         message: 'Please provide TEST information.', 
-        name:'tests'
+        name:'tests',
+        default: 'There are no project specific tests provided.'
     },
     {
         type:'list', 
@@ -50,7 +62,6 @@ const questions = [
         message: 'Enter your e-mail', 
         name:'email'
     }
-
 ];
 
 // function to write README file
