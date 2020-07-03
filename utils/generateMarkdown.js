@@ -1,47 +1,54 @@
+const badges = {
+  MIT: '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
+  GPLv2: '![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)',
+  Apache: '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)',
+  GPLv3: '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)',
+  BSD3: '![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)'
+}
+
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-
-  ## Description
+${badges[data.license]}
+## Description
   
-  ${data.description}
+${data.description}
   
-  ## Table of Contents
+## Table of Contents
   
-    * [Description](#description)
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [License](#license)
-    * [Contributing](#contributing)
-    * [Tests](#tests)
-    * [Questions](#questions)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
   
-  ## Installation
+## Installation
   
-  ${data.installation}
+${data.installation}
   
-  ## Usage
+## Usage
   
-  ${data.usage}
+${data.usage}
   
-  ## License
+## License
   
-  The application is released under the ${data.license} license.
+The application is released under the ${data.license} license.
   
-  ## Contributing
+## Contributing
   
-  ${data.contributing}
+${data.contributing}
   
+## Tests
   
-  ## Tests
+${data.tests}
   
-  ${data.tests}
+## Questions
   
-  ## Questions
+Link to author's [gitHub profile](https://github.com/${data.username}).
   
-  Link to author's [gitHub profile](https://github.com/${data.username}).
-  
-  In case of further questions, e-mail: ${data.email}
+In case of further questions, e-mail: ${data.email}
 `;
 }
 
